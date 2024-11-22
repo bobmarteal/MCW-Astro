@@ -2,6 +2,9 @@
     _site-header.scss
     layout for the <header>
 */
+
+@use "../_mixins.scss" as *;
+
 .site-header {
   display: grid;
   grid-template-columns: 1fr;
@@ -22,8 +25,14 @@
     z-index: 3;
   }
 }
+.logo {
+  max-width: 33%;
+}
+
 .logo > img {
-  animation: logo-scale ease-out 500ms forwards;
+  @include mq(medium) {
+    animation: logo-scale ease-out 500ms forwards;
+  }
 }
 @keyframes logo-scale {
   0% {

@@ -4,6 +4,7 @@
     overlay text on image
 */
 @use "_text.scss" as *;
+@use "../_mixins.scss" as *;
 
 .hero {
   display: grid;
@@ -22,6 +23,10 @@
     transform-origin: left;
     justify-self: self-start;
     font-weight: 600;
+    font-size: 1.5rem;
+    @include mq(medium) {
+      font-size: 4rem;
+    }
   }
   img {
     border-radius: 1em;

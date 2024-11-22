@@ -1,0 +1,62 @@
+/*
+    _lede.scss
+    -fancy little text block
+*/
+
+.lede {
+  > p {
+    max-width: 40ch;
+    max-width: 28ch;
+    font-weight: 100;
+    text-align: center;
+    margin-inline: auto;
+    margin-block: 1em;
+    position: relative;
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      background: var(--yellow);
+      height: 6px;
+      width: 80%;
+      left: 10%;
+      border-radius: 4px;
+    }
+    &::before {
+      top: -1em;
+    }
+    &::after {
+      bottom: -1em;
+    }
+  }
+  .little-bike {
+    margin-inline: auto;
+    width: max-content;
+    background: var(--yellow);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-1em);
+    > svg {
+      animation: bikeColorChange 3s forwards 1;
+    }
+  }
+}
+
+/*
+stroke animation
+*/
+@keyframes bikeColorChange {
+  0% {
+    stroke: var(--white);
+  }
+  50% {
+    stroke: var(--blue);
+  }
+  100% {
+    stroke: var(--teal);
+  }
+}
