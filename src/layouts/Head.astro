@@ -1,0 +1,25 @@
+---
+const { title, description } = Astro.props;
+
+// import styles
+import "../styles/style.scss";
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <script
+    is:inline
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+  ></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shantell+Sans:ital,wght,BNCE@0,300..800,66;1,300..800,66&display=swap"
+    rel="stylesheet"
+  />
+</head>

@@ -1,0 +1,27 @@
+/*
+    main style coagulator for MCW's kick ass astro site.
+*/
+
+// vars and mixins
+@use "sass/_vars.scss";
+@use "sass/_mixins.scss";
+
+// main layout
+@use "sass/layout/_main-layout.scss";
+
+// reset
+@use "sass/_reset.scss";
+
+// utility classes
+@use "sass/_utilities.scss";
+
+// base - generic body stuff
+@use "sass/_base.scss";
+
+// text
+@use "sass/components/_text.scss";
+
+// components
+@use "sass/components/_site-header.scss";
+@use "sass/components/_blobs.scss";
+@use "sass/components/_hero.scss";

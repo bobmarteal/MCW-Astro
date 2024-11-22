@@ -1,0 +1,111 @@
+/*
+    Utility classes
+    1. sr-only
+    2. centering
+    3. background colors
+    4. margins
+    5. border-radiuses
+    
+*/
+.inline-center {
+  margin-inline: auto;
+}
+.block-center {
+  margin-block: auto;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.offscreen {
+  position: absolute;
+  z-index: -1;
+}
+
+// centered alinged text blocks
+
+.centered-text *,
+.centered-text {
+  text-align: center;
+}
+.align-center,
+.align-center > * {
+  margin-inline: auto;
+}
+
+// main slices with background colors
+.gray-bg {
+  background: var(--gray-500);
+}
+.gray-light-bg {
+  background: var(--gray-300);
+}
+.red-bg {
+  background: var(--red-500);
+  color: var(--white);
+}
+.black-bg {
+  background: var(--black);
+}
+
+// margin-block-end classes give margin bottom
+.m-bottom-05 {
+  margin-block-end: 0.5em;
+}
+.m-bottom-0 {
+  margin-block-end: 0;
+}
+.m-bottom-1 {
+  margin-block-end: 1rem;
+}
+.m-bottom-2 {
+  margin-block-end: 2rem;
+}
+.m-bottom-3 {
+  margin-block-end: 3rem;
+}
+.m-bottom-4 {
+  margin-block-end: 4rem;
+}
+
+// margin-block utility classes gives margin top and bottom
+.m-block-1 {
+  margin-block: 1rem;
+}
+.m-block-2 {
+  margin-block: 2rem;
+}
+.m-block-3 {
+  margin-block: 3rem;
+}
+.m-block-3 {
+  margin-block: 3rem;
+}
+.m-block-4 {
+  margin-block: 4rem;
+}
+
+// put border radius on items
+.border-radius-small {
+  border-radius: var(--border-radius-small);
+  overflow: clip;
+}
+.border-radius-medium {
+  border-radius: var(--border-radius-medium);
+  overflow: clip;
+}
+.border-radius-large {
+  border-radius: var(--border-radius-large);
+  overflow: clip;
+}

@@ -1,0 +1,29 @@
+/*
+    _hero.scss
+    Homepage hero
+    overlay text on image
+*/
+@use "_text.scss" as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: flex-end;
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  h1 {
+    @include baseFun($bounce: 60);
+    color: var(--white);
+    padding: 0 1em;
+    transform: rotate(-11deg);
+    transform-origin: left;
+    justify-self: self-start;
+    font-weight: 600;
+  }
+  img {
+    border-radius: 1em;
+  }
+}
