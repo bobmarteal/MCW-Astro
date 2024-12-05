@@ -8,6 +8,10 @@
 
 .hero {
   display: grid;
+  grid-column: full-width;
+  @include mq(small) {
+    grid-column: content;
+  }
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   align-items: flex-end;
@@ -19,12 +23,13 @@
     @include baseFun($bounce: 60);
     color: var(--white);
     padding: 0 1em;
-    transform: rotate(-11deg);
+
     transform-origin: left;
     justify-self: self-start;
     font-weight: 600;
     font-size: 1.5rem;
     @include mq(medium) {
+      transform: rotate(-11deg);
       font-size: 4rem;
     }
   }

@@ -1,0 +1,80 @@
+/*
+    _skew-gallery.scss
+    -- lays out the fancy squishy skewed image gallery on homepage
+*/
+@use "../_mixins.scss" as *;
+
+.gallery {
+  display: grid;
+  @include mq(small) {
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    align-items: center;
+  }
+
+  .image {
+    grid-column: span 2;
+
+    transition: all 250ms;
+    @include mq(small) {
+      grid-row: 1;
+    }
+  }
+  img {
+    object-fit: cover;
+    border-radius: 1em;
+  }
+  .image:nth-of-type(1) {
+    @include mq(small) {
+      grid-column: 1 / span 2;
+    }
+
+    filter: drop-shadow(0.5em 0.5em var(--teal));
+    transform: skew(2deg, 4deg);
+    transform-origin: left;
+  }
+  .image:nth-of-type(2) {
+    @include mq(small) {
+      grid-column: 2 / span 3;
+    }
+
+    filter: drop-shadow(0.5em 0.5em var(--yellow));
+    transform: skew(-2deg, -4deg);
+    z-index: 11;
+    img {
+      border-radius: 1em 2em 1em 2em;
+    }
+  }
+  .image:nth-of-type(3) {
+    @include mq(small) {
+      grid-column: 4 / span 2;
+    }
+
+    filter: drop-shadow(0.5em 0.5em var(--blue));
+    transform: skew(4deg, 2deg);
+    transform-origin: right;
+  }
+  @include mq(small) {
+    .image:hover {
+      transform: skew(0, 0);
+      z-index: 100;
+      transform: scale(1.12);
+      filter: drop-shadow(-0.5em 0.5em var(--red));
+      img {
+        border-radius: 1em;
+      }
+    }
+    &:hover > div > img {
+      filter: brightness(0.5) saturate(0.5);
+    }
+    & > div > img:hover {
+      filter: brightness(1) saturate(1.5);
+    }
+  }
+}
+
+@keyframes zIndexHack {
+  0%,
+  100% {
+    z-index: 10;
+  }
+}

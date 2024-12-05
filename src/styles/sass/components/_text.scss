@@ -132,29 +132,23 @@ h6 {
 .swooshy {
   position: relative;
   z-index: 1;
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -0.125rem;
-    left: -0.5rem;
-    right: -0.5rem;
-    height: 0.75rem;
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  @include mq(medium) {
+    text-decoration: none;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -0.125rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      height: 0.75rem;
+      z-index: -1;
 
-    // Position the line behind the text so that
-    // it is still easily readable
-    z-index: -1;
+      background-image: url("/images/theme/swoosh.svg");
+      background-repeat: no-repeat;
 
-    // The SVG is added as an SVG background image
-    // background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/664131/underline.svg");
-    background-image: url("/images/theme/swoosh.svg");
-    background-repeat: no-repeat;
-
-    // This allows the SVG to flex in size to fit
-    // any length of word. If the word is short,
-    // the SVG will be stretched vertically, if it
-    // is long, the SVG will be stretched horizontally.
-    // The jagged nature of this particular SVG works
-    // with this transforming.
-    background-size: cover;
+      background-size: cover;
+    }
   }
 }
