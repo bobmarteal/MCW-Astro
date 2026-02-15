@@ -5,10 +5,12 @@
 
 <div class="lede">
   <p>
-    You already love <em>riding your bike</em>, now <strong
-      class="fun fc-red swooshy">love your bike</strong
-    >. A custom paint job is fun and will bring a smile to your face on every
-    ride.
+    <slot>
+      You already love <em>riding your bike</em>, now <strong
+        class="fun fc-red swooshy">love your bike</strong
+      >. A custom paint job is fun and will bring a smile to your face on every
+      ride.
+    </slot>
   </p>
   <div class="little-bike">
     <svg
@@ -25,3 +27,66 @@
     </svg>
   </div>
 </div>
+
+<style lang="scss">
+  .lede {
+    > p {
+      max-width: 28ch;
+      font-weight: 100;
+      text-align: center;
+      margin-inline: auto;
+      margin-block: 1em;
+      position: relative;
+
+      &::after,
+      &::before {
+        position: absolute;
+        content: "";
+        background: var(--yellow);
+        height: 6px;
+        width: 80%;
+        left: 10%;
+        border-radius: 4px;
+      }
+
+      &::before {
+        top: -1em;
+      }
+
+      &::after {
+        bottom: -1em;
+      }
+    }
+
+    .little-bike {
+      margin-inline: auto;
+      width: max-content;
+      background: var(--yellow);
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -1em;
+      z-index: 1;
+      position: relative;
+
+      > svg {
+        animation: bikeColorChange 3s forwards 1;
+      }
+    }
+  }
+
+  @keyframes bikeColorChange {
+    0% {
+      stroke: var(--white);
+    }
+    50% {
+      stroke: var(--blue);
+    }
+    100% {
+      stroke: var(--teal);
+    }
+  }
+</style>

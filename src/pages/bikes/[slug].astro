@@ -1,0 +1,88 @@
+---
+export const prerender = false;
+
+import { render } from "astro:content";
+import MainPageWrapper from "../../layouts/MainPageWrapper.astro";
+import { getEntry } from "astro:content";
+import Lightbox from "@/components/Lightbox.astro";
+import Hero from "@/components/Hero.astro";
+import Lede from "@/components/Lede.astro";
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+const entry = await getEntry("bikes", slug);
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+// Dynamically import all images from the bike's asset folder
+const galleryImages = entry.data.gallery
+  ? await Promise.all(
+      entry.data.gallery.map(async (filename) => {
+        try {
+          const images = import.meta.glob<{ default: ImageMetadata }>(
+            "/src/assets/**/*.{jpg,jpeg,png,gif,webp,avif}",
+          );
+          const imagePath = `/src/assets/${slug}/${filename}`;
+          const image = images[imagePath];
+          if (image) {
+            return (await image()).default;
+          }
+          console.warn(`Image not found: ${imagePath}`);
+          return null;
+        } catch (err) {
+          console.error(`Error loading image ${filename}:`, err);
+          return null;
+        }
+      }),
+    ).then((imgs) => imgs.filter((img): img is ImageMetadata => img !== null))
+  : [];
+
+// Rendered Content component (if the markdown has body content)
+// const rendered = await entry.render();
+// const Content = rendered.Content;
+const { Content } = await render(entry);
+---
+
+<MainPageWrapper title={`${entry.data.name} - Marteal Cycle Works`}>
+  <article class="bike-entry primary-layout ">
+    {entry.data.cover && (
+      <Hero
+        image={entry.data.cover}
+        title={entry.data.name}
+        alt={`${entry.data.name} cover`}
+      />
+    )}
+
+    {entry.data.lede && (
+      <Lede>
+        {entry.data.lede}
+      </Lede>
+    )}
+
+    {entry.data.description && <p class="bike-description-intro">{entry.data.description}</p>}
+
+
+    <!-- <section class="bike-meta">
+      {
+        entry.data.type && entry.data.type.length > 0 && (
+          <p class="bike-type">Type: {entry.data.type.join(", ")}</p>
+        )
+      }
+    </section> -->
+    {
+      galleryImages.length > 0 && (
+        <Lightbox images={galleryImages} alt={entry.data.name} />
+      )
+    }
+
+    <section class="bike-description narrow">
+      
+      <Content />
+    </section>
+  </article>
+</MainPageWrapper>

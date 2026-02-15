@@ -1,11 +1,64 @@
 ---
 import { Image } from "astro:assets";
 import GreenmanSideFull from "../assets/Greenman-frame.jpg";
+
 // Hero.astro
 // big picture and a fun heading
+interface Props {
+  image?: ImageMetadata;
+  title?: string;
+  alt?: string;
+}
+
+const {
+  image = GreenmanSideFull,
+  title = "Let's make bikes you'll love!",
+  alt = "Hero image"
+} = Astro.props;
 ---
 
-<div class="hero m-bottom-4">
-  <Image src={GreenmanSideFull} alt="Greenman" width={1600} ; />
-  <h1 class="fun">Let's make bikes you'll love!</h1>
+<div class="hero bleed m-bottom-4">
+  <Image src={image} alt={alt} width={1600} quality={90} />
+  <h1 class="fun">{title}</h1>
 </div>
+
+<style lang="scss">
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: flex-end;
+
+    > * {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    h1 {
+      font-family: var(--ff-fun);
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      font-variation-settings:
+        "BNCE" 60,
+        "INFM" 0,
+        "SPAC" 0;
+
+      color: var(--white);
+      padding: 0 1em;
+      transform-origin: left;
+      justify-self: self-start;
+      font-size: 1.5rem;
+
+      @media only screen and (min-width: 782px) {
+        transform: rotate(-11deg);
+        font-size: 4rem;
+      }
+    }
+
+    img {
+      border-radius: 1em;
+      margin-inline: auto;
+    }
+  }
+</style>

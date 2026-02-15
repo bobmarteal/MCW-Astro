@@ -1,29 +1,36 @@
 /*
     main style coagulator for MCW's kick ass astro site.
+
+    Component-specific styles have been moved to their respective .astro files.
+    This file now only contains global styles, utilities, and layout systems.
 */
+@use "sass/base";
+@use "sass/layout";
 
-// vars and mixins
-@use "sass/_vars.scss";
-@use "sass/_mixins.scss";
 
-// main layout
-@use "sass/layout/_main-layout.scss";
 
-// reset
-@use "sass/_reset.scss";
+// // vars and mixins
+// @use "sass/_vars.scss";
+// @use "sass/_mixins.scss";
 
-// utility classes
-@use "sass/_utilities.scss";
+// // main layout
+// @use "sass/layout/_main-layout.scss";
 
-// base - generic body stuff
-@use "sass/_base.scss";
+// // reset
+// @use "sass/_reset.scss";
 
-// text
-@use "sass/components/_text.scss";
+// // utility classes
+// @use "sass/_utilities.scss";
 
-// components
-@use "sass/components/_site-header.scss";
-@use "sass/components/_blobs.scss";
-@use "sass/components/_hero.scss";
-@use "sass/components/_lede.scss";
-@use "sass/components/_skew-gallery.scss";
+// // base - generic body stuff
+// @use "sass/_base.scss";
+
+// // text
+// @use "sass/components/_text.scss";
+
+// // components
+// @use "sass/components/_site-header.scss";
+// @use "sass/components/_blobs.scss";
+// @use "sass/components/_hero.scss";
+// @use "sass/components/_lede.scss";
+// @use "sass/components/_skew-gallery.scss";

@@ -10,12 +10,25 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^5.5.4",
-    "astro": "^4.16.13",
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/netlify": "^6.6.1",
+    "astro": "^5.15.9",
     "astro-icon": "^1.1.2",
     "autoprefixer": "^10.4.20",
     "sass": "^1.81.0",
     "typescript": "^5.6.3"
-  }
+  },
+  "description": "```sh npm create astro@latest -- --template minimal ```",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobmarteal/MCW-Astro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobmarteal/MCW-Astro/issues"
+  },
+  "homepage": "https://github.com/bobmarteal/MCW-Astro#readme"
 }
