@@ -7,12 +7,12 @@ import SiteHeader from "@/layouts/SiteHeader.astro";
 <html lang="en">
   <Head {...Astro.props} />
   <body>
-    <div class="wrapper primary-layout">
+
       <SiteHeader />
-      <main class="primary-layout bleed">
+      <main>
         <slot />
       </main>
       <SiteFooter />
-    </div>
+
   </body>
 </html>

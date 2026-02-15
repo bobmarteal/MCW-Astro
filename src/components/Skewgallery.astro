@@ -1,16 +1,109 @@
 ---
 import { Image } from "astro:assets";
-import GreenmanSideFull from "../assets/Greenman-frame.jpg";
+import { getCollection } from "astro:content";
+
+// Fetch all bikes from the collection
+const allBikes = await getCollection("bikes");
+
+// Take the first 3 bikes
+const featuredBikes = allBikes.slice(0, 3);
 ---
 
-<div class="gallery m-block-3">
-  <div class="image">
-    <Image src={GreenmanSideFull} alt="Greenman" width={1600} ; />
+{featuredBikes.length > 0 && (
+  <div class="gallery m-block-3">
+    {featuredBikes.map((bike, index) => (
+      <a href={`/bikes/${bike.id}`} class="image">
+        <Image
+          src={bike.data.cover}
+          alt={bike.data.name}
+          width={1600}
+          loading={index === 0 ? "eager" : "lazy"}
+          quality={85}
+        />
+      </a>
+    ))}
   </div>
-  <div class="image">
-    <Image src={GreenmanSideFull} alt="Greenman" width={1600} ; />
-  </div>
-  <div class="image">
-    <Image src={GreenmanSideFull} alt="Greenman" width={1600} ; />
-  </div>
-</div>
+)}
+
+<style lang="scss">
+  .gallery {
+    display: grid;
+
+    @media only screen and (min-width: 580px) {
+      grid-template-columns: repeat(5, minmax(100px, 1fr));
+      align-items: center;
+    }
+
+    .image {
+      display: block;
+      grid-column: span 2;
+      transition: all 250ms;
+      text-decoration: none;
+
+      @media only screen and (min-width: 580px) {
+        grid-row: 1;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      border-radius: 1em;
+      display: block;
+    }
+
+    .image:nth-of-type(1) {
+      @media only screen and (min-width: 580px) {
+        grid-column: 1 / span 2;
+      }
+
+      filter: drop-shadow(0.5em 0.5em var(--teal));
+      transform: skew(2deg, 4deg);
+      transform-origin: left;
+    }
+
+    .image:nth-of-type(2) {
+      @media only screen and (min-width: 580px) {
+        grid-column: 2 / span 3;
+      }
+
+      filter: drop-shadow(0.5em 0.5em var(--yellow));
+      transform: skew(-2deg, -4deg);
+      z-index: 11;
+
+      img {
+        border-radius: 1em 2em 1em 2em;
+      }
+    }
+
+    .image:nth-of-type(3) {
+      @media only screen and (min-width: 580px) {
+        grid-column: 4 / span 2;
+      }
+
+      filter: drop-shadow(0.5em 0.5em var(--blue));
+      transform: skew(4deg, 2deg);
+      transform-origin: right;
+    }
+
+    @media only screen and (min-width: 580px) {
+      .image:hover {
+        transform: skew(0, 0);
+        z-index: 100;
+        transform: scale(1.12);
+        filter: drop-shadow(-0.5em 0.5em var(--red));
+
+        img {
+          border-radius: 1em;
+        }
+      }
+
+      &:hover > a > img {
+        filter: brightness(0.5) saturate(0.5);
+      }
+
+      & > a > img:hover {
+        filter: brightness(1) saturate(1.5);
+      }
+    }
+  }
+</style>

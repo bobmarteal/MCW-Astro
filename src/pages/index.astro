@@ -6,13 +6,44 @@ import MainPageWrapper from "@/layouts/MainPageWrapper.astro";
 import Hero from "@/components/Hero.astro";
 import Lede from "@/components/Lede.astro";
 import Skewgallery from "@/components/Skewgallery.astro";
+import { getCollection } from "astro:content";
+
+// just the builds
+// const bikes = await getCollection("bikes", (entry) => entry.data.type?.includes("Build"));
+
+const bikes = await getCollection("bikes");
+
+
 ---
 
 <MainPageWrapper title="Marteal Cycle Works">
+  <div class="primary-layout">
   <Hero />
   <Lede />
 
   <Skewgallery />
+  <!-- <ul>
+    {headings.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+  </ul> -->
+  <!-- <Content /> -->
+  {bikes.map((bike) => (
+    <article class="bike-summary m-bottom-4 ">
+      <h2><a href={`/bikes/${bike.id}`}>{bike.data.name}</a></h2>
+      {bike.data.cover && (
+        <figure class="bike-cover">
+          <img
+            src={bike.data.cover.src}
+            alt={`${bike.data.name} cover`}
+            width={bike.data.cover.width}
+            height={bike.data.cover.height}
+          />
+        </figure>
+      )}
+    </article>
+  ))}   
+  </div>
+ 
+
   <!-- bikes -->
   <!-- about -->
 </MainPageWrapper>
