@@ -1,5 +1,6 @@
 ---
 import Blobs from "@/components/Blobs.astro";
+import MainNav from "@/components/MainNav.astro";
 ---
 
 <header class="site-header">
@@ -167,24 +168,7 @@ import Blobs from "@/components/Blobs.astro";
       </svg>
     </a>
   </div>
-  <!-- <div class="nav"> -->
-  <!-- <a
-      href="#"
-      id="mainNavToggle"
-      class="menu-toggle"
-      aria-expanded="false"
-      aria-controls="mainNavWrapper"
-      ><span class="sr-only">Toggle main navigation</span>
-      <span></span><span></span><span></span><span></span></a
-    > -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Work</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-  </nav>
-  <!-- </div> -->
+  <MainNav />
 </header>
 
 <style lang="scss">
@@ -195,8 +179,7 @@ import Blobs from "@/components/Blobs.astro";
     max-width: 1200px;
     margin: 0 auto;
 
-    div,
-    nav {
+    > * {
       grid-column: 1;
       grid-row: 1;
     }
@@ -231,93 +214,7 @@ max-height: 275px;
         }
       }
     }
-
-    nav {
-      width: fit-content;
-      padding: 0 .5em;
-      background: var(--yellow);
-      align-self: center;
-      justify-self: flex-end;
-      border-radius: 24px;
-      z-index: 2;
-      
-
-      &::after {
-        content: "";
-        border-radius: 8px;
-        background-color: var(--teal);
-
-        width: 10px;
-
-        position: absolute;
- 
-      }
-      &:has(a:hover) {
-        &::after {
-          /*       background-color:red; */
-        }
-      }
-
-      > ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        // gap: 0.5em;
-      }
-
-      a {
-        display: block;
-        padding: 0.5em;
-        
-        color: var(--teal);
-        position: relative;
-        z-index: 2;
-        &::after {
-          position: absolute;
-          width: 0;
-          height: 100%;
-          top: 0;
-          left: 0;
-          right: 0;
-          background-color: var(--teal);
-          content: "";
-          z-index: -1;
-          border-radius: 8px;
-          transition: width 150ms;
-          
-        }
-      }
-
-      a:hover {
-        
-        color: var(--yellow);
-        &::after {
-          width: 100%;
-        }
-      }
-
-    }
-    
   }
-@supports (anchor-name:--nav){
-      nav{
-       anchor-name: --nav;
-        &::after{
-        position-anchor: --nav;
-        left: anchor(left);
-        top: anchor(top);
-        bottom: anchor(bottom);
-        right: anchor(right);
-        transition: inset 250ms;
-        transition-delay: 150ms;
-        }
-        a:hover{
-          anchor-name: --nav;
-        }
-      }
-    }
   @keyframes logo-scale {
     0% {
       opacity: 0;
