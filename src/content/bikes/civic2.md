@@ -6,12 +6,12 @@ description: |
  The Roadster is designed for speed and comfort, featuring a lightweight frame and custom paint options.
 cover: "../../assets/civic2/civic2-full.jpg"
 gallery:
-  - "civic2-full.jpg"
-  - "civic2-front.jpg"
-  - "civic2-mid.jpg"
-  - "civic2-downtube-fork.jpg"
-  - "civic2-seatpost.jpg"
-  - "civic2-backhalf.jpg"
+  - "../../assets/civic2/civic2-full.jpg"
+  - "../../assets/civic2/civic2-front.jpg"
+  - "../../assets/civic2/civic2-mid.jpg"
+  - "../../assets/civic2/civic2-downtube-fork.jpg"
+  - "../../assets/civic2/civic2-seatpost.jpg"
+  - "../../assets/civic2/civic2-backhalf.jpg"
 ---
 
 ## Lots of fun here h2

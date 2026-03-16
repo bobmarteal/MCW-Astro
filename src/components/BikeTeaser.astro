@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  bike: CollectionEntry<"bikes">;
+}
+
+const { bike } = Astro.props;
+---
+
+<article class="bike-teaser">
+  <a href={`/bikes/${bike.id}`} class="bike-teaser__link">
+    {bike.data.cover && (
+      <figure class="bike-teaser__cover">
+        <Image
+          src={bike.data.cover}
+          alt={`${bike.data.name} cover`}
+          width={800}
+          quality={80}
+          loading="lazy"
+        />
+      </figure>
+    )}
+    <div class="bike-teaser__body">
+      <h2 class="bike-teaser__title">{bike.data.name}</h2>
+      {bike.data.description && (
+        <p class="bike-teaser__description">{bike.data.description}</p>
+      )}
+      {bike.data.type && (
+        <ul class="bike-teaser__types">
+          {bike.data.type.map((t) => (
+            <li class="bike-teaser__type">{t}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </a>
+</article>
+
+<style lang="scss">
+  .bike-teaser {
+    &__link {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &__cover {
+      margin: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 1em;
+      }
+    }
+
+    &__body {
+      padding: 0.75em 0;
+    }
+
+    &__title {
+      margin: 0 0 0.25em;
+    }
+
+    &__description {
+      margin: 0 0 0.5em;
+    }
+
+    &__types {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 0.5em;
+    }
+
+    &__type {
+      font-size: 0.75rem;
+      background: var(--teal);
+      color: var(--yellow);
+      padding: 0.2em 0.6em;
+      border-radius: 99px;
+    }
+  }
+</style>

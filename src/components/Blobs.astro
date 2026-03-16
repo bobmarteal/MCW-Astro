@@ -59,7 +59,7 @@
 "
       ></animate>
     </path>
-    <path fill="yellow">
+    <!-- <path fill="yellow">
       <animate
         attributeName="d"
         dur="16s"
@@ -71,7 +71,7 @@
                     M304.57 0.00655161C372.1 -0.539542 400.872 58.7733 448.5 99.5C495.98 140.1 529.5 161.053 564.586 222.346C599.671 283.639 622.569 355.138 564.586 397.07C507.813 438.126 379.067 411.82 304.57 410.38C233.205 409.001 173.719 402.228 116 366.5C52.1886 327.001 -6.35966 289.2 0.796629 222.346C7.60009 158.788 42.2944 98.1936 99.1664 56.5674C149.984 19.3727 237.533 0.548657 304.57 0.00655161Z;
 "
       ></animate>
-    </path> 
+    </path>  -->
   </svg>
   <svg width="auto" height="auto" viewBox="0 0 600 420" class="blob-4">
     <path>
@@ -152,6 +152,7 @@
       ></animate>
     </path>
   </svg>
+  
 </div>
 
 <style lang="scss">
@@ -180,7 +181,7 @@
 
   .blob-3 {
     grid-column: 8 / span 6;
-    fill: var(--yellow);
+    fill: var(--blue);
   }
 
   .blob-4 {
@@ -200,9 +201,13 @@
   }
 
   .blob-7 {
-    grid-column: 9 / -1;
+    grid-column: 9 / span 3;
     fill: var(--yellow);
   }
+  .blob-8 {
+    grid-column: 9 / -1;
+    fill: var(--yellow);
+  } 
 
   [class^="blob-"] {
     grid-row: 1;

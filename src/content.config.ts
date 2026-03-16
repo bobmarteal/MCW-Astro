@@ -16,7 +16,7 @@ export const collections = {
     cover: image(),
     description: z.string().max(5000).optional(),
     lede: z.string().max(200).optional(),
-    gallery: z.array(z.string()).optional(), // Just filenames now!
+    gallery: z.array(image()).optional(),
   }),
 
 })};

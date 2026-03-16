@@ -1,24 +1,23 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Hero from "@/components/Hero.astro";
 
-// Fetch all bikes from the collection
-const allBikes = await getCollection("bikes");
+interface Props {
+  bikes: CollectionEntry<"bikes">[];
+}
 
-// Take the first 3 bikes
-const featuredBikes = allBikes.slice(0, 3);
+const { bikes } = Astro.props;
+const featuredBikes = bikes.slice(0, 3);
 ---
 
 {featuredBikes.length > 0 && (
   <div class="gallery m-block-3">
-    {featuredBikes.map((bike, index) => (
+    {featuredBikes.map((bike) => (
       <a href={`/bikes/${bike.id}`} class="image">
-        <Image
-          src={bike.data.cover}
+        <Hero
+          image={bike.data.cover}
+          title={bike.data.name}
           alt={bike.data.name}
-          width={1600}
-          loading={index === 0 ? "eager" : "lazy"}
-          quality={85}
         />
       </a>
     ))}
@@ -43,6 +42,10 @@ const featuredBikes = allBikes.slice(0, 3);
       @media only screen and (min-width: 580px) {
         grid-row: 1;
       }
+    }
+
+    :global(.hero h1) {
+      font-size: 1.5rem;
     }
 
     img {
@@ -97,11 +100,11 @@ const featuredBikes = allBikes.slice(0, 3);
         }
       }
 
-      &:hover > a > img {
+      &:hover > a img {
         filter: brightness(0.5) saturate(0.5);
       }
 
-      & > a > img:hover {
+      & > a:hover img {
         filter: brightness(1) saturate(1.5);
       }
     }

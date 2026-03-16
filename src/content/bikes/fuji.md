@@ -5,14 +5,14 @@ type:
 description: A sparkly new life for an old tourer
 cover: "../../assets/fuji/fuji-full-side.jpg"
 gallery:
-  - "fuji-full-side.jpg"
-  - "fuji-front.jpg"
-  - "fuji-fork.jpg"
-  - "fuji-fork-2.jpg"
-  - "fuji-headtube.jpg"
-  - "fuji-toptube.jpg"
-  - "fuji-seattube.jpg"
-  - "fuji-log.jpg"
+  - "../../assets/fuji/fuji-full-side.jpg"
+  - "../../assets/fuji/fuji-front.jpg"
+  - "../../assets/fuji/fuji-fork.jpg"
+  - "../../assets/fuji/fuji-fork-2.jpg"
+  - "../../assets/fuji/fuji-headtube.jpg"
+  - "../../assets/fuji/fuji-toptube.jpg"
+  - "../../assets/fuji/fuji-seattube.jpg"
+  - "../../assets/fuji/fuji-log.jpg"
 
 ---
 

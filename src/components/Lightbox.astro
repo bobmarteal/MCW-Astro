@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { images, alt = "Gallery image" } = Astro.props;
-const id = `lightbox-${Math.random().toString(36).substr(2, 9)}`;
+const id = `lightbox-${Math.random().toString(36).slice(2, 11)}`;
 ---
 
 <div class="lightbox-gallery">
@@ -21,8 +21,8 @@ const id = `lightbox-${Math.random().toString(36).substr(2, 9)}`;
       <Image
         src={image}
         alt={`${alt} ${index + 1}`}
-        width={400}
-        height={300}
+        width={420}
+        height={305}
         loading="lazy"
         quality={80}
       />

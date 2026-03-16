@@ -1,8 +1,15 @@
 ---
-const { title, description } = Astro.props;
-
-// import styles
 import "../styles/style.scss";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const resolvedOgImage = ogImage ?? "/images/theme/MCW-logo.svg";
 ---
 
 <head>
@@ -11,11 +18,23 @@ import "../styles/style.scss";
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
-  <meta name="description" content={description} />
-  <script
-    is:inline
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-  ></script>
+  {description && <meta name="description" content={description} />}
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:image" content={resolvedOgImage} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marteal Cycle Works" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  {description && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:image" content={resolvedOgImage} />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

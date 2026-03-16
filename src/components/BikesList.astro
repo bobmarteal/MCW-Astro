@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BikeTeaser from "@/components/BikeTeaser.astro";
+
+interface Props {
+  bikes: CollectionEntry<"bikes">[];
+}
+
+const { bikes } = Astro.props;
+---
+
+<div class="bikes-list-wrapper">
+  <div class="flex flex_spread m-bottom-1">
+    <h2 class="m-bottom-0">Some bikes</h2>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Build">Build</button>
+      <button class="filter-btn" data-filter="Paint">Paint</button>
+    </div>
+  </div>
+
+  <div class="bikes-list">
+    {bikes.map((bike) => (
+      <div class="bike-item" data-types={bike.data.type.join(",")}>
+        <BikeTeaser bike={bike} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const wrapper = document.querySelector(".bikes-list-wrapper");
+  if (wrapper) {
+    const buttons = wrapper.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const items = wrapper.querySelectorAll<HTMLElement>(".bike-item");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        items.forEach((item) => {
+          const types = item.dataset.types?.split(",") ?? [];
+          item.hidden = filter !== "all" && !types.includes(filter!);
+        });
+      });
+    });
+  }
+</script>
+
+<style lang="scss">
+  .bikes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .filter-btn {
+    padding: 0.3em 0.9em;
+    border: 2px solid var(--teal);
+    border-radius: 99px;
+    background: transparent;
+    color: var(--teal);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 150ms, color 150ms;
+
+    &.active,
+    &:hover {
+      background: var(--teal);
+      color: var(--yellow);
+    }
+  }
+</style>

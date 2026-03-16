@@ -7,12 +7,11 @@ lede: "A badass gravel-forward bicycle for exploring the the Fingerlakes and bey
 description: ljhlkj
 cover: "../../assets/Greenman-frame.jpg"
 gallery:
-  - "greenman-down-tube.jpg"
-  - "greenman-seat-tube.jpg"
-  - "greenman-seatstay-detail.jpg"
-  - "greenman-fork.jpg"
-  - "greenman-down-tube.jpg"
-  - "greenman-face.jpg"
+  - "../../assets/greenman/greenman-down-tube.jpg"
+  - "../../assets/greenman/greenman-seat-tube.jpg"
+  - "../../assets/greenman/greenman-seatstay-detail.jpg"
+  - "../../assets/greenman/greenman-fork.jpg"
+  - "../../assets/greenman/greenman-face.jpg"
 ---
 ## Inspiration
 

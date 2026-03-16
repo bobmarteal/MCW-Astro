@@ -1,0 +1,14 @@
+.grid{
+    display: grid;
+    gap:1rem;
+}
+
+
+
+.flex{
+    display: flex;
+    gap: 1rem;
+}
+.flex_spread{
+    justify-content: space-between;
+}
