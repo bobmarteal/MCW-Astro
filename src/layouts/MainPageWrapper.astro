@@ -2,12 +2,19 @@
 import Head from "@/layouts/Head.astro";
 import SiteFooter from "@/layouts/SiteFooter.astro";
 import SiteHeader from "@/layouts/SiteHeader.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title = "Marteal Cycle Works", ...rest } = Astro.props;
 ---
 
 <html lang="en">
-  <Head {...Astro.props} />
+  <Head title={title} {...rest} />
   <body>
-
       <SiteHeader />
       <main class="m-block-1">
         <slot />

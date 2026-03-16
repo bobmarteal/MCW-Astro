@@ -66,7 +66,7 @@ const id = `lightbox-${Math.random().toString(36).slice(2, 11)}`;
   </div>
 </dialog>
 
-<script define:vars={{ id }}>
+<script define:vars={{ id }} is:inline>
   const dialog = document.getElementById(id);
   const slides = dialog.querySelectorAll('.lightbox-slide');
   const counter = dialog.querySelector('.lightbox-current');

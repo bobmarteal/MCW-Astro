@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /*
   All mixins are in this file
 
@@ -26,7 +28,7 @@ $widths: (
 */
 
 @mixin mq($key) {
-  $size: map-get($widths, $key);
+  $size: map.get($widths, $key);
   @media only screen and (min-width: $size) {
     @content;
   }
