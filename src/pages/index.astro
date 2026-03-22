@@ -11,6 +11,11 @@ import AboutBlock from "@/components/AboutBlock.astro";
 import { getCollection } from "astro:content";
 
 const bikes = await getCollection("bikes");
+
+const galleryOrder = ["happy-bike", "lessons", "civic2"];
+const galleryBikes = galleryOrder
+  .map((id) => bikes.find((b) => b.id === id))
+  .filter((b) => b !== undefined);
 ---
 
 <MainPageWrapper title="Marteal Cycle Works" description="Custom bicycle paint and builds by Marteal Cycle Works. We make your bike beautiful.">
@@ -24,7 +29,7 @@ const bikes = await getCollection("bikes");
   </section>
 
   <section id="gallery" class="primary-layout">
-    <Skewgallery bikes={bikes} />
+    <Skewgallery bikes={galleryBikes} />
   </section>
 
   <section id="bikes" class="primary-layout">

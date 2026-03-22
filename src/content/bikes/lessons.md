@@ -3,7 +3,7 @@ name: "Lessons"
 type:
   - Build
   - Paint
-cover: "../../assets/lessons/lessons-Full-bicycle-path.jpg"
+cover: "../../assets/lessons/lessons-Frame-side.jpg"
 description: An all-road bicycle that could handle a daily commute in rain-soaked upstate New York and spend hours on gravel roads of my new home in Richmond.
 gallery:
   - "../../assets/lessons/lessons-Full-bicycle-path.jpg"
