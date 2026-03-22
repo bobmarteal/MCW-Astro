@@ -12,7 +12,7 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-  scroll-margin-block-start: 2rem;
+  scroll-margin-block-start: 2rem; // offset anchor scroll targets so fixed/sticky header doesn't overlap them
 }
 
 /* text wrap */
@@ -38,7 +38,7 @@ svg,
 video {
   max-width: 100%;
   display: block;
-  font-style: italic;
+  font-style: italic; // shows alt text in italics when images fail to load
   height: auto;
 }
 
@@ -47,6 +47,7 @@ figure {
 }
 
 /* a11y resets */
+/* only enable smooth scroll for users who haven't opted out of motion */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -54,7 +55,7 @@ figure {
   }
 }
 
-/* remove bullets from uls with a class */
+/* remove bullets from uls with a class — attribute selector avoids stripping unstyled semantic lists */
 ul[class] {
   list-style: none;
   padding: 0;

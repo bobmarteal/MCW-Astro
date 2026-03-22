@@ -2,8 +2,7 @@
 name: "Civic2"
 type:
   - Paint
-description: |
- The Roadster is designed for speed and comfort, featuring a lightweight frame and custom paint options.
+description: A more sophisticated color-way for a Marteal Cycle Works bicycle.
 cover: "../../assets/civic2/civic2-full.jpg"
 gallery:
   - "../../assets/civic2/civic2-full.jpg"
@@ -14,10 +13,10 @@ gallery:
   - "../../assets/civic2/civic2-backhalf.jpg"
 ---
 
-## Lots of fun here h2
+## Inspiration
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The Civic was getting tired physically and emotionally. It was a fun idea that didn't age as well hoped. My son wanted a to go in a more sophisticated direction with the paint scheme. More black and white. I wanted to make it complicated, so after a lot of back and forth we came up with this. A white to black tiered design, with approximately eleventy-billion little cross and line details. 
 
-### little fun here h3
+This project also illustrates not only the visual changes of a paint job, but the way a bike feels. The eleveated design inspires confidence and a draws you to want to experience it.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+*Another great thing about this project is sharing the creative experience with my son who did all the photography and image production. [Check him out on Instagram](https://www.instagram.com/miles_marteal/).

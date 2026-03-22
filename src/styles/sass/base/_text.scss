@@ -45,7 +45,7 @@
   font-optical-sizing: auto;
   font-weight: $weight;
   font-style: $style;
-  font-variation-settings: "wdth" $width;
+  font-variation-settings: "wdth" $width; // variable font width axis; 100 = normal, lower = condensed
 }
 
 @mixin baseFun($family: var(--ff-fun), $weight: 400, $bounce: 0) {
@@ -55,8 +55,10 @@
   font-style: normal;
   font-variation-settings:
     "BNCE" $bounce,
+    // Shantell Sans bounce axis: 0 = flat, 100 = max bounce
     "INFM" 0,
-    "SPAC" 0;
+    // informality axis: 0 = formal
+    "SPAC" 0; // spacing axis: 0 = normal
 }
 
 /*
@@ -68,7 +70,11 @@ html {
   font-size: var(--fs-base);
 }
 main {
-  font-size: clamp(1.25rem, 1.25vw + 1rem, 1.5rem);
+  font-size: clamp(
+    1.25rem,
+    1.25vw + 1rem,
+    1.5rem
+  ); // fluid type: scales between 1.25rem and 1.5rem relative to viewport width
   letter-spacing: -1px;
 }
 /*
@@ -134,7 +140,7 @@ h6 {
 */
 .swooshy {
   position: relative;
-  z-index: 1;
+  z-index: 1; // establishes stacking context so ::after pseudo-element can go behind the text with z-index: -1
   text-decoration: underline;
   text-decoration-color: var(--blue);
   @include mq(medium) {
@@ -146,12 +152,26 @@ h6 {
       left: -0.5rem;
       right: -0.5rem;
       height: 0.75rem;
-      z-index: -1;
+      z-index: -1; // places SVG swoosh behind the text
 
-      background-image: url("/images/theme/swoosh.svg");
+      background-image: url("/images/theme/swoosh.svg"); // decorative underline SVG from public/
       background-repeat: no-repeat;
 
       background-size: cover;
     }
   }
+}
+
+/*
+blockquotes
+*/
+blockquote {
+  border-left: 6px solid var(--yellow);
+  margin-inline-start: 0.5rem;
+  padding-inline-start: 1rem;
+  font-style: italic;
+}
+
+a{
+  color: var(--red);
 }

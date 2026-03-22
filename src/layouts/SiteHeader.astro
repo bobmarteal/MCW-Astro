@@ -172,12 +172,19 @@ import MainNav from "@/components/MainNav.astro";
 </header>
 
 <style lang="scss">
-  .site-header {
+  :global(.site-header) {
     display: grid;
     grid-template-columns: 1fr;
     grid-row: 1;
     max-width: 1600px;
     margin: 0 auto;
+    --scroll-distance: -400px;
+    position: sticky;
+    inset-block-start: var(--scroll-distance);
+    container-type: scroll-state;
+    container-name: site-header;
+    top: -400px;
+    z-index: 100;
 
     > * {
       grid-column: 1;
@@ -193,16 +200,14 @@ import MainNav from "@/components/MainNav.astro";
       justify-self: center;
       align-self: center;
       max-width: 33%;
-max-height: 275px;
+      max-height: 275px;
       > img {
         @media only screen and (min-width: 782px) {
           animation: logo-scale ease-out 500ms forwards;
         }
-        
       }
       svg {
         width: 275px;
-        height: 275px;
         transition: transform 200ms ease-out;
         * {
           fill: var(--yellow);

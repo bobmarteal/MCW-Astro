@@ -30,22 +30,12 @@ const { Content } = await render(entry);
       />
     )}
 
-    {entry.data.lede && (
+    {entry.data.description && (
       <Lede>
-        {entry.data.lede}
+        {entry.data.description}
       </Lede>
     )}
 
-    {entry.data.description && <p class="bike-description-intro">{entry.data.description}</p>}
-
-
-    <!-- <section class="bike-meta">
-      {
-        entry.data.type && entry.data.type.length > 0 && (
-          <p class="bike-type">Type: {entry.data.type.join(", ")}</p>
-        )
-      }
-    </section> -->
     {
       galleryImages.length > 0 && (
         <Lightbox images={galleryImages} alt={entry.data.name} />
@@ -53,7 +43,6 @@ const { Content } = await render(entry);
     }
 
     <section class="bike-description narrow">
-      
       <Content />
     </section>
   </article>

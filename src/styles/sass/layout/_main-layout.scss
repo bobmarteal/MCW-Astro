@@ -16,7 +16,7 @@
     content 
     narrow
   */
-  overflow: clip;
+  overflow: clip; // prevents bleed-width children from creating horizontal scroll
   background: var(--white);
   --max-width: 1400px;
   --padding-inline: 1rem;
@@ -24,7 +24,7 @@
   --bleed-extra-distance: 4rem;
 
   --content-max-width: 50rem;
-  --narrow-size-reduction: 5em; // 1/2 of how much smaller the narrow should be
+  --narrow-size-reduction: 5em; // half the total inset applied to each side to create the narrow column
   --content-column-min: calc(370px - 2em);
   --content-column-max: 1520px;
   --_content-column-size: 1200px;
@@ -36,6 +36,11 @@
   );
   --_content-column-size: var(--narrow-size-reduction);
 
+  /*
+    Named-line grid: children choose their horizontal span by referencing named lines.
+    Columns from outside in: full-width > bleed > content > narrow (center-line splits narrow symmetrically).
+    The outer minmax(padding-inline, 1fr) gutters absorb remaining space at wide viewports.
+  */
   display: grid;
   grid-template-columns:
     [full-width-start]
@@ -57,6 +62,7 @@
     [full-width-end];
 }
 
+/* default all direct children to the content column; more specific rules below override as needed */
 :is(.primary-layout, .full-width) > * {
   grid-column: content;
 }
@@ -69,6 +75,7 @@
   grid-column: bleed;
 }
 
+// .full-width children re-establish the same named-line grid so their own children can also use named columns
 :is(.primary-layout, .full-width) > .full-width {
   display: grid;
   grid-template-columns: inherit;
@@ -80,6 +87,7 @@
   grid-column: content;
 }
 
+// :where() has zero specificity — images default to full-bleed but can be overridden by any class
 :where(.primary-layout, .full-width) > img {
   width: 100%;
   grid-column: full-width;

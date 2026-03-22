@@ -19,7 +19,7 @@ table{
         }
         &:last-of-type{
             //padding-left: 1rem;
-            width: 20%;
+            width: 20%; // fixed width for last column (e.g. a status or action column)
             text-align: center;
         }
     }

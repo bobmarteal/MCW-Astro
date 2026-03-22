@@ -10,12 +10,7 @@ import BikesList from "@/components/BikesList.astro";
 import AboutBlock from "@/components/AboutBlock.astro";
 import { getCollection } from "astro:content";
 
-// just the builds
-// const bikes = await getCollection("bikes", (entry) => entry.data.type?.includes("Build"));
-
 const bikes = await getCollection("bikes");
-
-
 ---
 
 <MainPageWrapper title="Marteal Cycle Works" description="Custom bicycle paint and builds by Marteal Cycle Works. We make your bike beautiful.">

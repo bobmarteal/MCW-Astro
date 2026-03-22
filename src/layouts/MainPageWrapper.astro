@@ -15,17 +15,11 @@ const { title = "Marteal Cycle Works", ...rest } = Astro.props;
 <html lang="en">
   <Head title={title} {...rest} />
   <body>
-      <SiteHeader />
-      <main class="m-block-1">
-        <slot />
-      </main>
-      <SiteFooter />
-
+    <SiteHeader />
+    <main class="m-block-1">
+      <slot />
+    </main>
+    <SiteFooter />
   </body>
 </html>
 
-<style lang="scss">
-  main{
-  
-  }
-</style>

@@ -1,5 +1,6 @@
+// -1px x-offset gives slight left lean; large blur (31px) with negative spread (-10px) keeps shadow soft and contained
 .box-shadow{
     box-shadow: -1px 8px 31px -10px rgba(54,54,54,0.57);
--webkit-box-shadow: -1px 8px 31px -10px rgba(54,54,54,0.57);
--moz-box-shadow: -1px 8px 31px -10px rgba(54,54,54,0.57);
+-webkit-box-shadow: -1px 8px 31px -10px rgba(54,54,54,0.57); // Safari legacy prefix
+-moz-box-shadow: -1px 8px 31px -10px rgba(54,54,54,0.57);    // Firefox legacy prefix (no longer needed but harmless)
 }

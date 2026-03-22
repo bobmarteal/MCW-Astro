@@ -30,6 +30,7 @@
   white-space: nowrap !important;
 }
 
+// visually hides element by pushing it behind everything — use .sr-only for truly hidden content
 .offscreen {
   position: absolute;
   z-index: -1;
@@ -97,7 +98,7 @@
   }
 }
 
-// put border radius on items
+// put border radius on items; overflow:clip prevents child images bleeding outside rounded corners
 .border-radius-small {
   border-radius: var(--border-radius-small);
   overflow: clip;

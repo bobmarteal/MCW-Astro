@@ -2,7 +2,7 @@
 name: "Fuji"
 type:
   - Paint
-description: A sparkly new life for an old tourer
+description: A rusty old tourer, a polka-dot fork, and a one-way ticket to adventure.
 cover: "../../assets/fuji/fuji-full-side.jpg"
 gallery:
   - "../../assets/fuji/fuji-full-side.jpg"
@@ -16,10 +16,8 @@ gallery:
 
 ---
 
-## Lots of fun here h2
+## New life with an eye on adventure
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This old Fuji touring model came in rough — a dull, rusty brown with some years on it. Not every bike is meant to stay long, and this one was just passing through. Strip it down, breathe some new life into it, send it on its way.
 
-### little fun here h3
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The highlight is the fork: a polka-dot fade that turned a tired tourer into something worth a second look. Rebuilt and ready, it found its next chapter as an adventure bike for a young man up in Ithaca.

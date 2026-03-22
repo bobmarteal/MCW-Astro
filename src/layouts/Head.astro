@@ -35,6 +35,15 @@ const resolvedOgImage = ogImage ?? "/images/theme/MCW-logo.svg";
   {description && <meta name="twitter:description" content={description} />}
   <meta name="twitter:image" content={resolvedOgImage} />
 
+  <!-- Experimental CSS bypassing PostCSS/autoprefixer -->
+  <style is:inline>
+    @container site-header scroll-state(stuck: top) {
+      .main-nav {
+        --nav-translate: 0 100px;
+      }
+    }
+  </style>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

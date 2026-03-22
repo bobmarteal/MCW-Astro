@@ -2,7 +2,7 @@
     main vars for MCW
 */
 :root {
-  interpolate-size: allow-keywords;
+  interpolate-size: allow-keywords; // enables transitions to/from keyword sizes like "auto" and "max-content" (CSS spec opt-in)
 
   //colors
   --teal: hsl(180 44 41 / 100);

@@ -35,12 +35,13 @@ $widths: (
 }
 
 :root {
+  // expose breakpoint values as CSS custom properties so JS can read them via getComputedStyle
   @each $name, $width in $widths {
     --#{$name}: #{$width};
   }
 }
 
-// hoverable
+// hoverable — only applies hover styles on true pointer devices, not touch screens
 @mixin hoverable() {
   @media (hover: hover) and (pointer: fine) {
     @content;

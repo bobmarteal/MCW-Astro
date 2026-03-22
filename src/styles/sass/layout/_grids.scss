@@ -1,3 +1,6 @@
+
+@use "../base" as *;
+
 .grid{
     display: grid;
     gap:1rem;
@@ -5,10 +8,16 @@
 
 
 
+// mobile-first: stacks vertically by default, switches to horizontal row at the medium breakpoint
 .flex{
     display: flex;
+    flex-direction: column;
     gap: 1rem;
+    @include mq(medium){
+        flex-direction: row;
+    }
 }
+
 .flex_spread{
     justify-content: space-between;
 }

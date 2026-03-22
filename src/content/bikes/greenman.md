@@ -3,8 +3,7 @@ name: "Greenman"
 type:
   - Build
   - Paint
-lede: "A badass gravel-forward bicycle for exploring the the Fingerlakes and beyond."
-description: ljhlkj
+description: A badass gravel-forward bicycle for exploring the the Fingerlakes and beyond.
 cover: "../../assets/Greenman-frame.jpg"
 gallery:
   - "../../assets/greenman/greenman-down-tube.jpg"

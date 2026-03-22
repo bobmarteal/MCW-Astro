@@ -41,10 +41,19 @@ const { bikes } = Astro.props;
         buttons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
 
+        // fade out visible items
         items.forEach((item) => {
-          const types = item.dataset.types?.split(",") ?? [];
-          item.hidden = filter !== "all" && !types.includes(filter!);
+          if (!item.hidden) item.style.opacity = "0";
         });
+
+        setTimeout(() => {
+          items.forEach((item) => {
+            const types = item.dataset.types?.split(",") ?? [];
+            const show = filter === "all" || types.includes(filter!);
+            item.hidden = !show;
+            item.style.opacity = show ? "1" : "";
+          });
+        }, 200);
       });
     });
   }
@@ -54,7 +63,11 @@ const { bikes } = Astro.props;
   .bikes-list {
     display: flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 1em;
+  }
+
+  .bike-item {
+    transition: opacity 200ms ease;
   }
 
   .filter-buttons {

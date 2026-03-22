@@ -39,15 +39,19 @@ const { bike } = Astro.props;
 </article>
 
 <style lang="scss">
+  @use "../styles/sass/base/mixins" as *;
   .bike-teaser {
     &__link {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2em;
+      @include mq(medium) {
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+      }
       align-items: center;
       text-decoration: none;
       color: inherit;
     }
+
 
     &__cover {
       margin: 0;
