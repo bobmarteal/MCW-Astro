@@ -4,8 +4,8 @@
 Marteal Cycle Works marketing site. Custom bicycle paint/build portfolio with a bikes content collection.
 
 ## Tech Stack
-- **Framework**: Astro 5.x (currently 5.15.9)
-- **Deployment**: Netlify via `@astrojs/netlify` adapter
+- **Framework**: Astro 5.x (currently 5.15.9), static output (no adapter)
+- **Deployment**: CloudCannon (migrated from Netlify) — build output is `dist/`, config in `cloudcannon.config.yml`
 - **Styling**: SASS/SCSS — global partials in `src/styles/sass/`, component-scoped styles in each `.astro` file
 - **Type checking**: TypeScript (strict mode, `astro/tsconfigs/strict`)
 - **Icons**: `astro-icon` 1.x
@@ -42,7 +42,6 @@ public/              # Unprocessed static assets (SVGs, favicon only — no imag
 Aliases are picked up automatically by Vite — no need to duplicate in `astro.config.mjs`.
 
 ## Integrations
-- `@astrojs/netlify` — deployment adapter
 - `astro-icon` — SVG icon system
 - `@astrojs/check` — TypeScript checking runs as part of build (`astro check && astro build`)
 
@@ -58,14 +57,13 @@ Aliases are picked up automatically by Vite — no need to duplicate in `astro.c
 <!-- TODO: Fill in — e.g., naming patterns, TypeScript interface conventions in frontmatter, preferred slot patterns -->
 
 ## Deployment Target
-<!-- Netlify. TODO: clarify — static output vs SSR preference, edge functions, preview deploy requirements -->
+CloudCannon, static output. No adapter in `astro.config.mjs` — Astro's default `output: 'static'` mode. CloudCannon builds via `npm run build` and serves `dist/`.
 
 ## Performance Goals
 <!-- TODO: clarify — Core Web Vitals targets, image format preferences (avif/webp), lazy loading rules -->
 
 ## Known Issues / Tech Debt
 - jQuery loaded in `Head.astro` but not used by any component — candidate for removal
-- `prerender = false` on `src/pages/bikes/[slug].astro` forces SSR; consider `getStaticPaths()` if no dynamic data is needed
 - `getCollection("bikes")` is called independently in both `index.astro` and `Skewgallery.astro`
 - `src/components/ImageGallery.astro` exists but is not imported anywhere
 - `src/styles/sass/nav/` and `src/styles/sass/components/` partials are not imported in `style.scss`
